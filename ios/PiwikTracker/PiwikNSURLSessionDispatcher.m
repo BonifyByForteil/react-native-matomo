@@ -7,6 +7,7 @@
 //
 
 #import "PiwikNSURLSessionDispatcher.h"
+#import <UIKit/UIWebView.h>
 
 
 @interface PiwikNSURLSessionDispatcher ()
@@ -51,6 +52,11 @@ static NSUInteger const PiwikHTTPRequestTimeout = 5;
                                   timeoutInterval:PiwikHTTPRequestTimeout];
   if (self.userAgent) {
     [request setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
+  } else {
+      UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+      NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+      self.userAgent = secretAgent;
+      [request setValue:secretAgent forHTTPHeaderField:@"User-Agent"];
   }
     
   request.HTTPMethod = @"GET";
@@ -71,6 +77,11 @@ static NSUInteger const PiwikHTTPRequestTimeout = 5;
                                                           timeoutInterval:PiwikHTTPRequestTimeout];
   if (self.userAgent) {
     [request setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
+  } else {
+      UIWebView* webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+      NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
+      self.userAgent = secretAgent;
+      [request setValue:secretAgent forHTTPHeaderField:@"User-Agent"];
   }
     
   request.HTTPMethod = @"POST";
