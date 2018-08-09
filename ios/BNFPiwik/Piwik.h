@@ -13,4 +13,11 @@
 #endif
 
 @interface Piwik : NSObject <RCTBridgeModule>
+-(void) initTracker: (NSString*)url id:(NSNumber* _Nonnull) id;
+-(void) trackScreen: (NSString* _Nonnull)screen title:(NSString*) title;
+-(void) setUserId:(NSString* _Nonnull)userID;
+-(void) setAppOptOut:(BOOL)isOptedOut;
+-(void) trackGoal: (NSUInteger)goal values:(NSDictionary* _Nonnull) values;
+-(void) trackEvent: (NSString* _Nonnull)category action:(NSString* _Nonnull) action values:(NSDictionary* _Nonnull) values;
+-(void) trackAppDownload;
 @end
