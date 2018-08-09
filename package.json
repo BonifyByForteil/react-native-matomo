@@ -1,6 +1,6 @@
 {
-  "name": "react-native-piwik",
-  "version": "0.0.8",
+  "name": "react-native-piwik-manager",
+  "version": "0.0.1",
   "description": "React Native adapter for Piwik native SDKs",
   "main": "index.js",
   "scripts": {
