@@ -100,6 +100,5 @@ public final class URLSessionDispatcher: Dispatcher {
             }
         }
         task.resume()
-    }
-    
+    }   
 }
